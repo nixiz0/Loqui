@@ -4,7 +4,13 @@
 ![Loqui Logo](ressources/logo_loqui.png)
 
 Application allowing you to configure a text and a voice response, also allows you to open your applications with a chosen text trigger.
+
+
 ## Installation
+
+The fastest way is to clone the repository and click on the 'start-app.bat' and the application will launch automatically.
+
+If you want to run the code from your code environment, do this :
 
 => You need to install **Python 3.11**
 
