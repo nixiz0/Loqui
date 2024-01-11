@@ -8,7 +8,7 @@ Application allowing you to configure a text and a voice response, also allows y
 
 ## Installation
 
-The fastest way is to clone the repository and click on the **'start-app.bat'** and the application will **launch automatically**.
+The fastest way is to clone the repository and click on the **'start-app.bat'** and the application will **launch automatically** (if you have beforehand creating your .env and download the requirements.txt in your activate environment).
 
 If you want to run the code from your code environment, do this :
 
