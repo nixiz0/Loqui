@@ -68,6 +68,11 @@ with **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SPEECH\Voices\Tokens**.
 5. Save the modified file and double-click it to import the changes to the registry.
 
 
+## Commands
+
+Press the * key on your keyboard to pause the conversation and press the * key again to starts again the conversation.
+
+
 ## Vocal Commands
 
 The application integrates several features allowing you to execute commands with voice recognition, here are all the commands and their trigger phrases that you can use :
