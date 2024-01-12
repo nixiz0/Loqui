@@ -17,6 +17,11 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
     engine = pyttsx3.init()
     engine.setProperty('voice', voice_id)
     
+    if language=='fr-FR':
+        print("Apuuyez sur * sur votre clavier pour mettre en pause la conversation")
+    else: 
+        print("Press * on your keyboard to pause the conversation")
+
     def talk(text):
         engine.say(text)
         engine.runAndWait()
