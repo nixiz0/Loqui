@@ -23,6 +23,24 @@ If you want to run the code from your code environment, do this :
 4-/ Run the menu.py ```python main.py```
 
 
+## Installation to launch assistant when your computer starts (on Windows)
+
+- Pressed "Windows" + R
+
+- Write "shell:startup"
+
+- Copy and paste the "start-app.bat" on this folder
+
+- Rename the file "assistant-auto"
+
+- Open the "assistant-auto.bat" that you have renamed
+
+- On the first "cd" put the absolute path for the 'Scripts' instead of the relative path, 
+**For example** you change "cd .env\Scripts" to "C:\Users\YOU\Desktop\Loqui\.env\Scripts"
+
+- And now the script will start as soon as your computer starts.
+
+
 ## Loqui Add Data
 ![Add Data Illustration](ressources/add_data.png)
 
