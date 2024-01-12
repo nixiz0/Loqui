@@ -78,11 +78,21 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
             command = command.lower()
             print(command)
             for key in sentences.keys():
-                if key in command:
+                # Split the key and command into words
+                key_words = key.split()
+                command_words = command.split()
+                
+                # Check if all words in the key are in the command and in the correct order
+                if all(word in command_words[i:] for i, word in enumerate(key_words)):
                     talk(sentences[key])
                     
             for path_key in app_paths.keys():
-                if path_key in command:
+                # Split the path_key and command into words
+                path_key_words = path_key.split()
+                command_words = command.split()
+                
+                # Check if all words in the path_key are in the command and in the correct order
+                if all(word in command_words[i:] for i, word in enumerate(path_key_words)):
                     if language == 'fr-FR':
                         talk("Lancement de l'application " + path_key)
                     else: 
