@@ -21,6 +21,8 @@ If you want to run the code from your code environment, do this :
 3-/ Download required libraries ```pip install -r requirements.txt```
 
 4-/ Run the menu.py ```python main.py```
+
+
 ## Loqui Add Data
 ![Add Data Illustration](ressources/add_data.png)
 
@@ -34,6 +36,10 @@ To add an Application you must :
 - In the **'Application Key'** input you will have the name of this application which will serve as a trigger phrase.
 - If you want to change this name with a phrase or word that you want to use to trigger the opening of the application by saying this word orally, you just have to mark the new name you want in **'New Key Name'** and click on the **'Rename'** button to save the modification.
 
+Information on **.bat autorun** :
+The first time you click on the 'Start' button and put your parameters, it will create a **params.txt** file which will update if you change the parameters and this will ensure that when you run your .bat, it will automatically start the model without you needing to put your settings back, afterwards if you want to remodify the saved parameters you just have to start the main.py and reconfigure your parameters or you can delete the params.txt and it will automatically reopen the main.py menu and you click 'Start' and set your new settings.
+
+
 ## Loqui Start the Model
 ![Start Model Illustration](ressources/start_model.png)
 
@@ -41,6 +47,8 @@ To launch the model you must :
 - Select a Language, it's important because if you select the wrong language the voice recognition algorithm will not recognize the words well.
 - By default the main microphone used by Windows will be used but you can choose from all your microphones (if you have several) the one you want to use to speak with.
 - You can choose from the list of your synthetic voices that are in your operating system the voice you want to use.
+
+
 ## To have more Synthetic Voices Available (on Windows)
 
 ![Synthetic Voices Illustration](ressources/list_example_voices.png)
@@ -119,4 +127,3 @@ The application integrates several features allowing you to execute commands wit
 ## Author
 
 - [@nixiz0](https://github.com/nixiz0)
-
