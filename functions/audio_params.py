@@ -32,6 +32,8 @@ def audio_ai_params():
             messagebox.showwarning("No microphone and voice selected", "Please select a microphone and a voice before continuing.")
 
     def start_web_sep_shell(language, mic_index, voice_id):
+        with open('params.txt', 'w') as f:
+            f.write(f'{language}\n{mic_index}\n{voice_id}')
         command = f'python -c "from functions.model import voice_model; voice_model(\'{language}\', {int(mic_index)}, \'{voice_id}\')"'
         subprocess.Popen(command, shell=True)
 

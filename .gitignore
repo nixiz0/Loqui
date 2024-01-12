@@ -4,3 +4,4 @@ json_texts/*.json
 !json_texts/en_default.json
 !json_texts/fr_default.json
 json_files/*.json
+params.txt
