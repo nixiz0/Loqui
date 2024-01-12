@@ -164,8 +164,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 continue
             
             # Volume deMute
-            mute_keywords = ['des mute', 'remets le volume', 'demute', 'de mute']
-            if any(keyword in command for keyword in mute_keywords):
+            demute_keywords = ['des mute', 'remets le volume', 'demute', 'de mute']
+            if any(keyword in command for keyword in demute_keywords):
                 if language == 'fr-FR':
                     talk('Volume remis')
                 else: 
@@ -174,8 +174,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 continue
             
             # Volume Increase
-            mute_keywords = ['augmente le volume', 'monte le volume', 'increase the volume']
-            if any(keyword in command for keyword in mute_keywords):
+            volume_increase_keywords = ['augmente le volume', 'monte le volume', 'increase the volume']
+            if any(keyword in command for keyword in volume_increase_keywords):
                 if language == 'fr-FR':
                     talk('Volume augmenté')
                 else: 
@@ -184,14 +184,24 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 continue
                             
             # Volume Decreases
-            mute_keywords = ['diminue le volume', 'descend le volume', 'decreases the volume']
-            if any(keyword in command for keyword in mute_keywords):
+            volume_decrease_keywords = ['diminue le volume', 'descend le volume', 'decreases the volume']
+            if any(keyword in command for keyword in volume_decrease_keywords):
                 if language == 'fr-FR':
                     talk('Volume diminué')
                 else: 
                     talk('Volume decreased')
                 change_volume(-0.2)
                 continue    
+            
+            # Pause Conversation
+            pause_keywords = ['pause']
+            if any(keyword in command for keyword in pause_keywords):
+                if language == 'fr-FR':
+                    talk('La conversation a été interrompue')
+                else: 
+                    talk('The conversation was paused')
+                toggle_program(working)
+                continue
                                 
             # Stop Conversation
             stop_keywords = ['stoppe notre discussion', 'stoppe notre conversation', 'stoppe la discussion', 'stoppe la conversation',

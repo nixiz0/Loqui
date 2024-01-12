@@ -116,8 +116,13 @@ The application integrates several features allowing you to execute commands wit
 **Decreases Volume:**
 ['diminue le volume', 'descend le volume', 'decreases the volume']
 
+**Pause the conversation:**
+['pause']
+
 **Stop the Conversation:**
 ['stoppe notre discussion', 'stoppe notre conversation', 'stoppe la discussion', 'stoppe la conversation', 'stop our discussion', 'stop our conversation', 'stop the discussion', 'stop the conversation']
+
+
 ## Tech Stack
 
 **Voice Recognition:** speech_recognition
@@ -129,6 +134,8 @@ The application integrates several features allowing you to execute commands wit
 **Interface:** Tkinter
 
 **Computer Commands:** webbrowser (search on web) / pywhatkit (search on youtube) / pycaw (change volume computer)
+
+
 ## Author
 
 - [@nixiz0](https://github.com/nixiz0)
