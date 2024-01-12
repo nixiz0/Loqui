@@ -36,9 +36,9 @@ If you want to run the code from your code environment, do this :
 - Open the "assistant-auto.bat" that you have renamed
 
 - On the first "cd" put the absolute path for the 'Scripts' instead of the relative path, 
-**For example** you change "cd .env\Scripts" to "C:\Users\YOU\Desktop\Loqui\.env\Scripts"
+**for example** you change "cd .env\Scripts" to "C:\Users\YOU\Desktop\Loqui\.env\Scripts"
 
-- And now the script will start as soon as your computer starts.
+And now the script will start as soon as your computer starts.
 
 
 ## Loqui Add Data
