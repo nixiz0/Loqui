@@ -44,6 +44,8 @@ And now the script will start as soon as your computer starts.
 ## Loqui Add Data
 ![Add Data Illustration](ressources/add_data.png)
 
+**{Be careful to put the trigger sentences in lowercase without punctuation !}**
+
 To add the text trigger and response for this text you want to the model you must :
 - Put in **'Trigger Phrase'** the sentence that you want for trigger the model.
 - Put in **'Response'** the response you want the pattern to say after saying the trigger phrase.

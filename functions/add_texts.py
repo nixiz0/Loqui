@@ -53,8 +53,9 @@ def add_texts():
             name_without_ext = name_without_ext.translate(str.maketrans('', '', string.punctuation))
             save_to_file(name_without_ext, filename, 'json_files/file_path.json')
             e3.config(state='normal')
+            e3.delete(0, tk.END)
             e3.insert(0, name_without_ext)
-            e3.config(state='readonly')
+            e3.config(state='disabled')
 
     def rename_key():
         old_key = e3.get()
@@ -62,12 +63,14 @@ def add_texts():
         if old_key and new_key:
             with open('json_files/file_path.json', 'r+', encoding='utf-8') as file:
                 data = json.load(file)
-                data[new_key] = data.pop(old_key)
-                file.seek(0)
-                file.truncate()
-                json.dump(data, file, ensure_ascii=False, indent=4)
-            e3.delete(0, tk.END)
-            e4.delete(0, tk.END)
+                if old_key in data:
+                    data[new_key] = data.pop(old_key)
+                    file.seek(0)
+                    file.truncate()
+                    json.dump(data, file, ensure_ascii=False, indent=4)
+                else:
+                    print(f"The key '{old_key}' does not exist in the JSON file.")
+        e4.delete(0, tk.END)
 
     e1 = tk.Entry(master, font=font)
     tk.Label(master, text="Trigger Phrase", bg='#333333', fg='white', font=font).pack()
@@ -82,7 +85,6 @@ def add_texts():
     tk.Button(master, text='Add Application', command=open_file_dialog, font=font).pack(pady=5)
 
     e3 = tk.Entry(master, font=font)
-    e3.config(state='readonly')
     tk.Label(master, text="Application Key", bg='#333333', fg='white', font=font).pack()
     e3.pack()
 
@@ -91,3 +93,5 @@ def add_texts():
     e4.pack()
 
     tk.Button(master, text='Rename', command=rename_key, font=font).pack(pady=5)
+
+    master.mainloop()
