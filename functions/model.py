@@ -85,7 +85,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     subprocess.Popen(app_paths[path_key], shell=True)
                     
             # YouTube
-            youtube_keywords = ['recherche sur youtube', 'find on youtube', 'find in youtube']
+            youtube_keywords = ['cherche sur youtube', 'recherche sur youtube', 'find on youtube', 'find in youtube']
             if any(keyword in command for keyword in youtube_keywords):
                 ytb_command = command.replace('Open YouTube and find', '')
                 talk(ytb_command)
@@ -93,7 +93,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 continue
                 
             # Google
-            google_keywords = ['recherche sur google', 'find on google', 'find in google']
+            google_keywords = ['cherche sur google', 'recherche sur google', 'find on google', 'find in google']
             for keyword in google_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
@@ -102,7 +102,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     break
 
             # Wikipedia
-            wikipedia_keywords = ['recherche sur wikipédia', 'find on wikipedia', 'find in wikipedia']
+            wikipedia_keywords = ['cherche sur wikipédia', 'recherche sur wikipédia', 'find on wikipedia', 'find in wikipedia']
             for keyword in wikipedia_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
@@ -111,7 +111,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     break
                     
             # Bing
-            bing_keywords = ['recherche sur bing', 'find on bing', 'find in bing']
+            bing_keywords = ['cherche sur bing', 'recherche sur bing', 'find on bing', 'find in bing']
             for keyword in bing_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
@@ -121,7 +121,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 
             # Chat GPT
             openai_keywords = ['ouvre chat ia', 'recherche sur chat ia', 'search on ai chat', 
-                            'search in ai chat', 'start ai chat']
+                               'cherche sur chat ia', 'search in ai chat', 'start ai chat']
             if any(keyword in command for keyword in openai_keywords):
                 url = "https://chat.openai.com/"
                 webbrowser.open(url)
