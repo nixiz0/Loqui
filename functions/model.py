@@ -7,6 +7,7 @@ import datetime
 import keyboard
 import json
 import webbrowser
+import sympy
 
 from functions.volume import set_volume, change_volume
 from functions.llm_model import start_talk_chatbot
@@ -136,6 +137,25 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     else:
                         with open(file_path, 'a', encoding="utf-8") as f:
                             f.write(command)
+                    
+            # Calcul
+            calc_keywords = ['calcule', 'calcul', 'compute', 'calculate']
+            if any(keyword in command for keyword in calc_keywords):
+                calc_command = command.replace('calcule', '').replace('calcul', '').replace('compute', '').replace('calculate', '')
+                calc_command = calc_command.replace('x', '*').replace(',', '.')
+                try:
+                    result = sympy.sympify(calc_command)
+                    result = round(result, 2)
+                    if language == 'fr-FR':
+                        talk(f"Cela fait {result}")
+                    else: 
+                        talk(f"This makes {result}")
+                except Exception as e:
+                    if language == 'fr-FR':
+                        talk("Désolé, je n'ai pas pu effectuer le calcul.")
+                    else:
+                        talk("Sorry, I couldn't do the calculation.")
+                continue
                     
             # YouTube
             youtube_keywords = ['cherche sur youtube', 'recherche sur youtube', 'find on youtube', 'find in youtube']

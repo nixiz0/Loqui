@@ -113,6 +113,9 @@ The application integrates several features allowing you to execute commands wit
 **Open Text Edit and take note (file saved in your Desktop):**
 ['prends note', 'take note']
 
+**Calcul (addition, subtraction, multiplication and division):**
+['calcule', 'calcul', 'compute', 'calculate']
+
 **Launch and search on YouTube if you say:**  
 ['recherche sur youtube', 'find on youtube', 'find in youtube']
 
