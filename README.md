@@ -107,7 +107,7 @@ The application integrates several features allowing you to execute commands wit
 **Save conversation with the LLM in text:**  
 ['sauvegarde notre discussion', 'sauvegarde notre conversation', 'sauvegarde la discussion', 'sauvegarde la conversation', 'save our discussion', 'save our conversation', 'save the discussion', 'save the conversation']
 
-**deactivate LLM to return to classic detection:**  
+**Deactivate LLM to return to classic detection:**  
 ['désactive llm', 'passe en mode classique', 'passage en mode classique', 'disable llm', 'switch to classic mode', 'switch classic mode']
 
 **Open Text Edit and take note (file saved in your Desktop):**  
