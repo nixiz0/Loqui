@@ -1,4 +1,5 @@
 import os
+import time
 import subprocess
 import speech_recognition as sr 
 import pyttsx3 
@@ -71,6 +72,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
             else: 
                 print("The conversation starts again")
 
+    chronometer_start_time = None
     keyboard.on_press_key('*', toggle_program)
     while True:
         if working:
@@ -156,6 +158,26 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     else:
                         talk("Sorry, I couldn't do the calculation.")
                 continue
+            
+            # Start Chronometer
+            start_chronometer_keywords = ['démarre le chronomètre', 'start the chronometer']
+            stop_chronometer_keywords = ['arrête le chronomètre', 'stop the chronometer']
+            if any(keyword in command for keyword in start_chronometer_keywords):
+                if language == 'fr-FR':
+                    chronometer_start_time = time.time()
+                    talk("Chronomètre démarré.")
+                else:
+                    chronometer_start_time = time.time()
+                    talk("Chronometer started.")
+            elif any(keyword in command for keyword in stop_chronometer_keywords) and chronometer_start_time is not None:
+                elapsed_time = time.time() - chronometer_start_time
+                if language == 'fr-FR':
+                    talk(f"Chronomètre arrêté, temps écoulé : {round(elapsed_time, 2)} secondes")
+                    print(f"Chronomètre arrêté, temps écoulé : {round(elapsed_time, 2)} secondes")
+                else:
+                    talk(f"Chronometer stopped, time elapsed: {round(elapsed_time, 2)} seconds")
+                    print(f"Chronometer stopped, time elapsed: {round(elapsed_time, 2)} seconds")
+                chronometer_start_time = None
                     
             # YouTube
             youtube_keywords = ['cherche sur youtube', 'recherche sur youtube', 'find on youtube', 'find in youtube']

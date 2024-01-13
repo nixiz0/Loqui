@@ -116,6 +116,12 @@ The application integrates several features allowing you to execute commands wit
 **Calcul (addition, subtraction, multiplication and division):**  
 ['calcule', 'calcul', 'compute', 'calculate']
 
+**Start the chronometer:**   
+['démarre le chronomètre', 'start the chronometer']
+
+**Stop the chronometer:**   
+['arrête le chronomètre', 'stop the chronometer']
+
 **Launch and search on YouTube if you say:**  
 ['recherche sur youtube', 'find on youtube', 'find in youtube']
 
