@@ -101,19 +101,19 @@ For the local LLM you can also by pressing * pause the conversation but be caref
 
 The application integrates several features allowing you to execute commands with voice recognition, here are all the commands and their trigger phrases that you can use :
 
-**Launch Local LLM (use Ollama):**
+**Launch Local LLM (use Ollama):**  
 ['passe en mode précision', 'passe en précision', 'passage en mode précision', 'switch to precision mode', 'switch to precision']
 
-**Save conversation with the LLM in text:**
+**Save conversation with the LLM in text:**  
 ['sauvegarde notre discussion', 'sauvegarde notre conversation', 'sauvegarde la discussion', 'sauvegarde la conversation', 'save our discussion', 'save our conversation', 'save the discussion', 'save the conversation']
 
-**deactivate LLM to return to classic detection:**
+**deactivate LLM to return to classic detection:**  
 ['désactive llm', 'passe en mode classique', 'passage en mode classique', 'disable llm', 'switch to classic mode', 'switch classic mode']
 
-**Open Text Edit and take note (file saved in your Desktop):**
+**Open Text Edit and take note (file saved in your Desktop):**  
 ['prends note', 'take note']
 
-**Calcul (addition, subtraction, multiplication and division):**
+**Calcul (addition, subtraction, multiplication and division):**  
 ['calcule', 'calcul', 'compute', 'calculate']
 
 **Launch and search on YouTube if you say:**  
@@ -131,34 +131,34 @@ The application integrates several features allowing you to execute commands wit
 **Launch Chat-GPT:**  
 ['ouvre chat ia', 'recherche sur chat ia', 'search on ai chat', 'search in ai chat', 'start ai chat']
 
-**Gives you the current Time:**
+**Gives you the current Time:**  
 ['quelle heure est-il', 'l\'heure actuelle', 'what time is it']
 
-**Gives you the current Date:**
+**Gives you the current Date:**  
 ['date actuelle', 'date d\'aujourd\'hui', 'current date', 'today\'s date', 'date of today']
 
-**Gives you info on your IP Address:**
+**Gives you info on your IP Address:**  
 ['quel est mon ip', 'mon ip', 'my ip', 'what is my ip', 'what\'s my ip']
 
-**Gives you info on your system:**
+**Gives you info on your system:**  
 ['informations sur mon système', 'informations système', 'informations of my system', 'informations system']
 
-**Mute Volume in your computer:**
+**Mute Volume in your computer:**  
 ['mute', 'silence']
 
-**DeMute Volume:**
+**DeMute Volume:**  
 ['des mute', 'remets le volume', 'demute', 'de mute']
 
-**Increases Volume:**
+**Increases Volume:**  
 ['augmente le volume', 'monte le volume', 'increase the volume']
 
-**Decreases Volume:**
+**Decreases Volume:**  
 ['diminue le volume', 'descend le volume', 'decreases the volume']
 
-**Pause the conversation:**
+**Pause the conversation:**  
 ['pause']
 
-**Stop the Conversation:**
+**Stop the Conversation:**  
 ['stoppe notre discussion', 'stoppe notre conversation', 'stoppe la discussion', 'stoppe la conversation', 'stop our discussion', 'stop our conversation', 'stop the discussion', 'stop the conversation']
 
 
