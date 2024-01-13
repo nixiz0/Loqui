@@ -172,7 +172,7 @@ The application integrates several features allowing you to execute commands wit
 
 **Interface:** Tkinter
 
-**Computer Commands:** webbrowser (search on web) / pywhatkit (search on youtube) / pycaw (change volume computer)
+**Computer Commands:** webbrowser (search on web) / pywhatkit (search on youtube) / pycaw (change volume computer) / sympy (calcul) / keyboard (listen keyboard pressed)
 
 
 ## Author
