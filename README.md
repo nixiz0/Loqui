@@ -110,6 +110,9 @@ The application integrates several features allowing you to execute commands wit
 **deactivate LLM to return to classic detection:**
 ['désactive llm', 'passe en mode classique', 'passage en mode classique', 'disable llm', 'switch to classic mode', 'switch classic mode']
 
+**Open Text Edit and take note (file saved in your Desktop):**
+['prends note', 'take note']
+
 **Launch and search on YouTube if you say:**  
 ['recherche sur youtube', 'find on youtube', 'find in youtube']
 
