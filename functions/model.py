@@ -7,7 +7,6 @@ import datetime
 import keyboard
 import json
 import webbrowser
-import platform
 
 from functions.volume import set_volume, change_volume
 from functions.llm_model import start_talk_chatbot
@@ -56,16 +55,6 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 with open(f'json_files/{filename}', 'r', encoding='utf-8') as f:
                     app_paths.update(json.load(f))
         return app_paths
-    
-    def open_notepad():
-        if platform.system() == "Windows":
-            subprocess.run(['notepad.exe'])
-        elif platform.system() == "Linux":
-            subprocess.run(['gedit'])
-        elif platform.system() == "Darwin":
-            subprocess.run(['open', '-a', 'TextEdit'])
-        else:
-            print("Unsupported operating system")
     
     def toggle_program(e):
         nonlocal working
