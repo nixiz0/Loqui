@@ -8,7 +8,6 @@ import keyboard
 import json
 import webbrowser
 import platform
-import pyautogui
 
 from functions.volume import set_volume, change_volume
 from functions.llm_model import start_talk_chatbot
