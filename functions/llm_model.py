@@ -77,25 +77,26 @@ def start_talk_chatbot(model, language="en-EN", mic_index=0, voice_id='HKEY_LOCA
                 try:
                     # Recognize user voice
                     user_input = recognizer.recognize_google(audio, language=language)
+                    user_input = user_input.lower()
                     print("User: " + user_input)
                     
                     # Check if the user wants to save the conversation
                     detect_save_keyords = ['sauvegarde notre discussion', 'sauvegarde notre conversation', 'sauvegarde la discussion', 'sauvegarde la conversation',
                                             'save our discussion', 'save our conversation', 'save the discussion', 'save the conversation',
                                             ]
-                    if any(keyword in user_input.lower() for keyword in detect_save_keyords):
+                    if any(keyword in user_input for keyword in detect_save_keyords):
                         if language=='fr-FR':
                             engine.say("La conversation a été sauvegardé")
                         else: 
                             engine.say("The conversation has been saved")
-                        save_conversation(conversation_history)
                         print("Conversation saved.")
+                        save_conversation(conversation_history)
                         continue
 
                     # Check if the user wants to stop the LLM conversation for return to basic voice detection
                     detect_stop_llm_keyords = ['désactive llm', 'passe en mode classique', 'passage en mode classique',
                                             'disable llm', 'switch to classic mode', 'switch classic mode']
-                    if any(keyword in user_input.lower() for keyword in detect_stop_llm_keyords):
+                    if any(keyword in user_input for keyword in detect_stop_llm_keyords):
                         if language=='fr-FR':
                             engine.say("Passage en mode exécution de commandes")
                         else: 
