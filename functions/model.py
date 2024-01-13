@@ -9,6 +9,7 @@ import json
 import webbrowser
 
 from functions.volume import set_volume, change_volume
+from functions.llm_model import start_talk_chatbot
 
 
 def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\MSTTS_V110_enGB_HazelM'):
@@ -98,6 +99,24 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     else: 
                         talk("Starting the application " + path_key)
                     subprocess.Popen(app_paths[path_key], shell=True)
+                    
+            # Launch Local LLM (use Ollama) 
+            llm_start_keywords = ['passe en mode précision', 'passe en précision', 'passage en mode précision',
+                                  'switch to precision mode', 'switch to precision'
+                                 ]
+            if any(keyword in command for keyword in llm_start_keywords):
+                with open('params.txt', 'r') as f:
+                    lines = f.readlines()
+                    language = lines[0].strip()
+                    mic_index = int(lines[1].strip())
+                    voice_id = lines[2].strip()
+                    llm_model = lines[3].strip()
+                if language == 'fr-FR':
+                    talk("Passage en mode LLM Local sur seveur Ollama")
+                else: 
+                    talk("Switching to LLM Local mode on Ollama server")
+                start_talk_chatbot(llm_model, language, mic_index, voice_id)
+                continue
                     
             # YouTube
             youtube_keywords = ['cherche sur youtube', 'recherche sur youtube', 'find on youtube', 'find in youtube']

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./static/logo_loqui.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./guide.css">
+    <title>Local LLM Installation Guide</title>
+</head>
+<body>
+    <div class="main">
+        <h1>Installation Guide of Local LLM (Ollama)</h1>
+
+        <div class="shell_explain">
+            <h3>Open Ubuntu Shell and run this commands :</h3>
+            <ul>
+                <li><b class="command">curl https://ollama.ai/install.sh | sh</b></li>
+                <li><b class="command">ollama serve</b></li>
+            </ul>
+            <p>
+                <b class="attention">Attention</b>
+                <br>
+                If you have this message : 
+                <br>
+                <b style="color: red;">Error: listen tcp 127.0.0.1:11434: bind: address already in use</b>
+            </p>
+            <p>
+                Then execute this command : 
+                <br>
+                <b class="command">sudo systemctl stop ollama</b>
+                <br>
+                <b style="color: #bababa;">
+                    (Sudo will ask your user password
+                    <br>
+                    that you set when installing WSL for Ubuntu)
+                </b> 
+            </p>
+        </div>
+        <div class="download_models">
+            <h3>Download & Use Local Models</h3>
+            <p>
+                You click on Start button
+                <br>
+                On the input 'Enter LLM model' you have to enter the model you want
+                <br><br>
+                <b class="attention">Attention</b>
+                <br>
+                <b style="color: red;">You have to download previously the model in your machine</b>
+                <br><br>
+                How ?
+                <br>
+                Go on this website : <a href="https://ollama.ai/library" target="_blank">ollama.ai/library</a>.
+                <br>
+                Find models you want, and go in your Ubuntu shell and run : 
+                <br>
+                <b class="command">ollama pull 'name model'</b> 
+                <br><br>
+                You can return on the input
+                <br>
+                Then put on the input the name of one model that you have downloaded
+                <br><br>
+                If you want to see all the models that you have downloaded 
+                <br>
+                Run this command on your Ubuntu shell : 
+                <br>
+                <b class="command">ollama list</b> 
+            </p>
+        </div>
+        <div class="shell_details">
+            <h3>Essential Commands Ollama</h3>
+            <p>
+                <b class="command">ollama serve</b> 
+                <br>
+                Start Ollama serve API.
+                <br><br>
+                <b class="command">ollama list</b> 
+                <br>
+                Show all your downloaded models.
+                <br><br>
+                <b class="command">ollama pull 'name model'</b> 
+                <br>
+                <a href="https://ollama.ai/library" target="_blank">Download a specific model</a>.
+                <br><br>
+                <b class="command">ollama run 'name of the model'</b>
+                <br>
+                Run a specific model on the terminal.
+                <br><br>
+                <b class="command">ollama rm 'name model'</b>
+                <br>
+                Delete a model.
+            </p>
+            <p>
+                If you want to see more commands
+                <br>
+                just write on your Ubuntu shell 
+                <br>
+                <b class="command">Ollama</b>
+            </p>
+        </div>
+    </div>
+    <script src="./btn_copy.js"></script>
+</body>
+</html>

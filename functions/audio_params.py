@@ -3,8 +3,12 @@ from tkinter import ttk, messagebox
 import subprocess
 import pyaudio
 import pyttsx3
+import webbrowser
 
 
+def callback(url):
+    webbrowser.open_new(url)
+    
 def get_voices():
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
@@ -16,11 +20,12 @@ def audio_ai_params():
     voice_id = tk.StringVar()
     voice_id.set('')
     voice_dict = get_voices()
+    llm_model = tk.StringVar()
     def on_ok_audio_click():
         selected_language = language.get()
         if mic_index and voice_id and selected_language:
             start_web_sep_shell(selected_language, mic_index.get(), voice_id.get())
-            messagebox.showinfo("Start", f"Starting the Assistant with : Micro : Language : {selected_language}, {mic_index.get()}, Voice : {voice_id.get()}")
+            messagebox.showinfo("Start", f"Starting the Assistant with Micro : {mic_index.get()}, Language : {selected_language}, Voice : {voice_id.get()}")
             dialog.destroy()
         elif not mic_index:
             messagebox.showwarning("No microphone selected", "Please select a microphone before continuing.")
@@ -30,10 +35,14 @@ def audio_ai_params():
             messagebox.showwarning("No language selected", "Please select a language before continuing.")
         else:
             messagebox.showwarning("No microphone and voice selected", "Please select a microphone and a voice before continuing.")
+            
+        if llm_model:
+            with open('params.txt', 'a') as f:
+                f.write(f'{llm_model.get()}\n')
 
     def start_web_sep_shell(language, mic_index, voice_id):
         with open('params.txt', 'w') as f:
-            f.write(f'{language}\n{mic_index}\n{voice_id}')
+            f.write(f'{language}\n{mic_index}\n{voice_id}\n')
         command = f'python -c "from functions.model import voice_model; voice_model(\'{language}\', {int(mic_index)}, \'{voice_id}\')"'
         subprocess.Popen(command, shell=True)
 
@@ -112,9 +121,9 @@ def audio_ai_params():
         print(f"Selected Voice ID: {voice_dict[voice_name]}")
 
     dialog = tk.Toplevel()
-    dialog.geometry("400x270")
-    dialog.minsize(350, 260)
-    dialog.maxsize(420, 280)
+    dialog.geometry("400x360")
+    dialog.minsize(350, 350)
+    dialog.maxsize(420, 370)
 
     dialog.update_idletasks()
     width = dialog.winfo_width()
@@ -145,6 +154,17 @@ def audio_ai_params():
     
     voice_list_button = ttk.Button(dialog, text="Voice List", command=show_voice_list)
     voice_list_button.pack(pady=5)
+    
+    tk.Frame(dialog, height=3, bg="white").pack(fill=tk.X, padx=5, pady=5)
+    
+    llm_label = ttk.Label(dialog, text="Enter LLM model name (optional) :", foreground="white", background="#333333")
+    llm_label.pack()
+    model_link = tk.Label(dialog, text="List of models", fg="blue", cursor="hand2", foreground="cyan", background="#333333")
+    model_link.pack(pady=5)
+    model_link.bind("<Button-1>", lambda e: callback("https://ollama.ai/library"))
+    
+    model_entry = ttk.Entry(dialog, textvariable=llm_model)
+    model_entry.pack()
 
     ok_button = ttk.Button(dialog, text="OK", command=on_ok_audio_click)
     ok_button.pack(pady=5)

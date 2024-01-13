@@ -1,0 +1,94 @@
+::-webkit-scrollbar {
+    width: 14px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #4c4c4c;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #292929; 
+    border-radius: 6px;
+    border: 3px solid #ffffff; 
+  }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #384454;
+    color: white;
+    text-shadow: 0px 0px 4px #000000;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    text-shadow: 0px 0px 4px #000000;
+    color: cyan;
+}
+
+.main {
+    text-align: center;
+    font-size: 3vh;
+}
+
+h1 {
+    color: cyan;
+    text-shadow: 0px 0px 4px #000000;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.shell_explain {
+
+}
+
+    .command {
+        color: #1ec91e;
+        position: relative;
+    }
+
+    .attention {
+        color: red;
+        font-size: 1.45em;
+    }
+
+    .basic_title {
+        color: #ff8400;
+        font-size: 1.45em;
+    }
+
+.shell_details, .download_models {
+    margin-top: 3em;
+}
+
+/* Styles pour le bouton de copie */
+.copy-button {
+    cursor: pointer;
+    padding: 4px 7px;
+    background-color: #767676;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 0.6em;
+  }
+
+  .copy-button:hover {
+    background-color: #696969;
+  }
+
+  .copy-button:active {
+    background-color: #565656;
+  }
+  

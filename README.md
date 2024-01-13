@@ -68,6 +68,7 @@ To launch the model you must :
 - Select a Language, it's important because if you select the wrong language the voice recognition algorithm will not recognize the words well.
 - By default the main microphone used by Windows will be used but you can choose from all your microphones (if you have several) the one you want to use to speak with.
 - You can choose from the list of your synthetic voices that are in your operating system the voice you want to use.
+- (Optional) If you have installed Ollama and run the API server on your machine (click on 'Local LLM Guide' button on the menu if you don't know how to do this), you can put the name of a model that you have locally and use it later with a commands voice (check bellow to see the trigger sentences for activate the local LLM and for desactivate him)
 
 
 ## To have more Synthetic Voices Available (on Windows)
@@ -93,10 +94,21 @@ with **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SPEECH\Voices\Tokens**.
 
 Press the * key on your keyboard to pause the conversation and press the * key again to starts again the conversation.
 
+For the local LLM you can also by pressing * pause the conversation but be careful after a moment for reasons of performance optimization the local LLM of Ollama will turn off and therefore when you go to use it again it will take a little time to initialize.
+
 
 ## Vocal Commands
 
 The application integrates several features allowing you to execute commands with voice recognition, here are all the commands and their trigger phrases that you can use :
+
+**Launch Local LLM (use Ollama):**
+['passe en mode précision', 'passe en précision', 'passage en mode précision', 'switch to precision mode', 'switch to precision']
+
+**Save conversation with the LLM in text:**
+['sauvegarde notre discussion', 'sauvegarde notre conversation', 'sauvegarde la discussion', 'sauvegarde la conversation', 'save our discussion', 'save our conversation', 'save the discussion', 'save the conversation']
+
+**deactivate LLM to return to classic detection:**
+['désactive llm', 'passe en mode classique', 'passage en mode classique', 'disable llm', 'switch to classic mode', 'switch classic mode']
 
 **Launch and search on YouTube if you say:**  
 ['recherche sur youtube', 'find on youtube', 'find in youtube']
