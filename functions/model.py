@@ -9,6 +9,7 @@ import keyboard
 import json
 import webbrowser
 import sympy
+import cv2
 
 from functions.volume import set_volume, change_volume
 from functions.llm_model import start_talk_chatbot
@@ -57,6 +58,102 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 with open(f'json_files/{filename}', 'r', encoding='utf-8') as f:
                     app_paths.update(json.load(f))
         return app_paths
+    
+    def video_capture():
+        if language == 'fr-FR':
+            talk("Voulez-vous changer les paramètres par défaut pour la vidéo? (Oui ou Non)")
+        else:
+            talk("Do you want to change the default settings for video? (Yes or no)")
+        while True:
+            user_response = listen().lower()
+            if 'oui' in user_response or 'yes' in user_response:
+                user_response = 'yes'
+                break
+            elif 'non' in user_response or 'no' in user_response:
+                user_response = 'no'
+                break
+            else:
+                if language == 'fr-FR':
+                    talk("Veuillez répondre Oui je veux ou Non je ne veux pas.")
+                else:
+                    talk("Please answer yes i want or no i don't want.")
+
+        if user_response == 'yes':
+            if language == 'fr-FR':
+                talk("Veuillez indiquer le numéro de la caméra.")
+            else:
+                talk("Please indicate the camera number.")
+            num_cam_input = listen()
+            while not num_cam_input.isdigit():
+                if language == 'fr-FR':
+                    talk("Veuillez entrer un numéro de caméra valide.")
+                else:
+                    talk("Please enter a valid camera number.")
+                num_cam_input = listen()
+
+            num_cam_command = int(num_cam_input)
+
+            if language == 'fr-FR':
+                talk("Veuillez indiquer le FPS.")
+            else:
+                talk("Please indicate the FPS.")
+            fps_input = listen()
+            fps_command = int(next((int(s) for s in fps_input.split() if s.isdigit()), 60))
+
+            if language == 'fr-FR':
+                talk("Veuillez indiquer le titre de la vidéo.")
+            else:
+                talk("Please indicate the title of the video.")
+            title_video_input = listen()
+            title_video_command = title_video_input.strip() or "video_save.mp4"
+
+            num_cam = num_cam_command
+            fps = fps_command
+            title_video = title_video_command if title_video_command.endswith(".mp4") else title_video_command + ".mp4"
+        else:
+            num_cam = 0
+            fps = 60
+            title_video = "video_save.mp4"
+
+        desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+        video_path = os.path.join(desktop_path, title_video)
+        cap = cv2.VideoCapture(num_cam)
+        if not cap.isOpened():
+            if language == 'fr-FR':
+                talk("Erreur : Impossible d'ouvrir la caméra.")
+            else:
+                talk("Error: Unable to open the camera.")
+            return
+
+        width = int(cap.get(3))
+        height = int(cap.get(4))
+
+        # Set video codec and creator
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+        video_writer = cv2.VideoWriter(video_path, fourcc, fps, (width, height))
+        print(f"FPS: {fps}")
+        print(f"Video tile: {title_video}")
+        if language == 'fr-FR':
+            print("Lancement de la vidéo")
+        else:
+            print("Video launch")
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                if language == 'fr-FR':
+                    print("Erreur lecture de la caméra.")
+                else:
+                    print("Error reading camera.")
+                break
+
+            cv2.imshow("Live video (press 'space' to exit)", frame)
+            video_writer.write(frame)
+            # Stop video capture when 'space' key is pressed
+            if cv2.waitKey(1) == 32:
+                break
+        cap.release()
+        video_writer.release()
+        cv2.destroyAllWindows()
     
     def toggle_program(e):
         nonlocal working
@@ -178,7 +275,14 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     talk(f"Chronometer stopped, time elapsed: {round(elapsed_time, 2)} seconds")
                     print(f"Chronometer stopped, time elapsed: {round(elapsed_time, 2)} seconds")
                 chronometer_start_time = None
-                    
+                
+            # Start Video
+            start_video_keywords = ['je veux que tu filmes', 'commence une vidéo',
+                                    'i want you to film', 'start video', 'start a video']             
+            if any(keyword in command for keyword in start_video_keywords):
+                video_capture()
+                continue
+                            
             # YouTube
             youtube_keywords = ['cherche sur youtube', 'recherche sur youtube', 'find on youtube', 'find in youtube']
             if any(keyword in command for keyword in youtube_keywords):

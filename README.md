@@ -122,6 +122,10 @@ The application integrates several features allowing you to execute commands wit
 **Stop the chronometer:**   
 ['arrête le chronomètre', 'stop the chronometer']
 
+**Start a video (with your webcam):**   
+You will be asked if you wish to modify the video parameters, you can in particular choose to use another webcam, remember that if you have one webcam then you must say 0, if you have two and you want to use the second then you have to say 1 etc    
+['je veux que tu filmes', 'commence une vidéo', 'i want you to film', 'start video', 'start a video']  
+
 **Launch and search on YouTube if you say:**  
 ['recherche sur youtube', 'find on youtube', 'find in youtube']
 
