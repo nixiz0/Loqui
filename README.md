@@ -60,6 +60,8 @@ Information on **.bat autorun** :
 - The first time you click on the 'Start' button and put your parameters, it will create a **params.txt** file which will update if you change the parameters and this will ensure that when you run your .bat, it will automatically start the model without you needing to put your settings back.
 - If you want to remodify the saved parameters you just have to start the main.py and reconfigure your parameters or you can delete the params.txt and it will automatically reopen the main.py menu and you click 'Start' and set your new settings.
 
+Note: if you plug other components into your USB devices and others, it's possible that the micro index etc defined by default changes given the connection or unplugging of the device, so please after each connection or unplugging on your computer redefine the devices that you want to use.
+
 
 ## Loqui Start the Model
 ![Start Model Illustration](ressources/start_model.png)

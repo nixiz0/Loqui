@@ -61,7 +61,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
     
     def video_capture():
         if language == 'fr-FR':
-            talk("Voulez-vous changer les paramètres par défaut pour la vidéo? (Oui ou Non)")
+            talk("Voulez-vous changer les paramètres par défaut pour la vidéo ?")
         else:
             talk("Do you want to change the default settings for video? (Yes or no)")
         while True:
@@ -132,11 +132,11 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')
         video_writer = cv2.VideoWriter(video_path, fourcc, fps, (width, height))
         print(f"FPS: {fps}")
-        print(f"Video tile: {title_video}")
+        print(f"Video title: {title_video}")
         if language == 'fr-FR':
-            print("Lancement de la vidéo")
+            talk("Lancement de la vidéo")
         else:
-            print("Video launch")
+            talk("Video launch")
         while True:
             ret, frame = cap.read()
             if not ret:
@@ -154,7 +154,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
         cap.release()
         video_writer.release()
         cv2.destroyAllWindows()
-    
+        
     def toggle_program(e):
         nonlocal working
         working = not working
