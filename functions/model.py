@@ -168,30 +168,35 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 print("La conversation reprend")
             else: 
                 print("The conversation starts again")
-
+                
+    sentences = load_sentences()
+    app_paths = load_app_paths()  
+    # Sort the keys once at the beginning of the program
+    sorted_keys_sentences = sorted(sentences.keys(), key=len, reverse=True)
+    sorted_keys_app_paths = sorted(app_paths.keys(), key=len, reverse=True)
+    
     chronometer_start_time = None
     keyboard.on_press_key('*', toggle_program)
     while True:
         if working:
-            sentences = load_sentences()
-            app_paths = load_app_paths()
             command = listen()
             command = command.lower()
             print(command)
-            for key in sentences.keys():
+            for key in sorted_keys_sentences:
                 # Split the key and command into words
                 key_words = key.split()
                 command_words = command.split()
-                
+
                 # Check if all words in the key are in the command and in the correct order
                 if all(word in command_words[i:] for i, word in enumerate(key_words)):
                     talk(sentences[key])
-                    
-            for path_key in app_paths.keys():
+                    break 
+
+            for path_key in sorted_keys_app_paths:
                 # Split the path_key and command into words
                 path_key_words = path_key.split()
                 command_words = command.split()
-                
+
                 # Check if all words in the path_key are in the command and in the correct order
                 if all(word in command_words[i:] for i, word in enumerate(path_key_words)):
                     if language == 'fr-FR':
@@ -199,6 +204,7 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                     else: 
                         talk("Starting the application " + path_key)
                     subprocess.Popen(app_paths[path_key], shell=True)
+                    break
                     
             # Launch Local LLM (use Ollama) 
             llm_start_keywords = ['passe en mode précision', 'passe en précision', 'passage en mode précision',
