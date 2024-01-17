@@ -21,6 +21,7 @@ def audio_ai_params():
     voice_id.set('')
     voice_dict = get_voices()
     llm_model = tk.StringVar()
+    llm_vision_model = tk.StringVar()
     def on_ok_audio_click():
         selected_language = language.get()
         if mic_index and voice_id and selected_language:
@@ -39,6 +40,10 @@ def audio_ai_params():
         if llm_model:
             with open('params.txt', 'a') as f:
                 f.write(f'{llm_model.get()}\n')
+                
+        if llm_vision_model: 
+            with open('params.txt', 'a') as f:
+                f.write(f'{llm_vision_model.get()}\n')
 
     def start_web_sep_shell(language, mic_index, voice_id):
         with open('params.txt', 'w') as f:
@@ -121,9 +126,9 @@ def audio_ai_params():
         print(f"Selected Voice ID: {voice_dict[voice_name]}")
 
     dialog = tk.Toplevel()
-    dialog.geometry("400x360")
-    dialog.minsize(350, 350)
-    dialog.maxsize(420, 370)
+    dialog.geometry("400x470")
+    dialog.minsize(350, 460)
+    dialog.maxsize(420, 480)
 
     dialog.update_idletasks()
     width = dialog.winfo_width()
@@ -157,7 +162,7 @@ def audio_ai_params():
     
     tk.Frame(dialog, height=3, bg="white").pack(fill=tk.X, padx=5, pady=5)
     
-    llm_label = ttk.Label(dialog, text="Enter LLM model name (optional) :", foreground="white", background="#333333")
+    llm_label = ttk.Label(dialog, text="Enter LLM model (optional) :", foreground="white", background="#333333")
     llm_label.pack()
     model_link = tk.Label(dialog, text="List of models", fg="blue", cursor="hand2", foreground="cyan", background="#333333")
     model_link.pack(pady=5)
@@ -165,6 +170,17 @@ def audio_ai_params():
     
     model_entry = ttk.Entry(dialog, textvariable=llm_model)
     model_entry.pack()
+    
+    tk.Frame(dialog, height=1, bg="white").pack(fill=tk.X, padx=5, pady=5)
+    
+    llm_vision_label = ttk.Label(dialog, text="Enter Vision LLM model (optional) :", foreground="white", background="#333333")
+    llm_vision_label.pack()
+    model_vision_link = tk.Label(dialog, text="Vision models", fg="blue", cursor="hand2", foreground="cyan", background="#333333")
+    model_vision_link.pack(pady=5)
+    model_vision_link.bind("<Button-1>", lambda e: callback("https://ollama.ai/library?q=llava"))
+    
+    model_vision_entry = ttk.Entry(dialog, textvariable=llm_vision_model)
+    model_vision_entry.pack()
 
     ok_button = ttk.Button(dialog, text="OK", command=on_ok_audio_click)
     ok_button.pack(pady=5)

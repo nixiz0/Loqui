@@ -5,3 +5,4 @@ json_texts/*.json
 !json_texts/fr_default.json
 json_files/*.json
 params.txt
+photos

@@ -71,7 +71,7 @@ def start_talk_chatbot(model, language="en-EN", mic_index=0, voice_id='HKEY_LOCA
     while True:
         if working:
             with sr.Microphone(device_index=mic_index) as source:
-                print("Listening...")
+                print("Listening (precision LLM mode)...")
                 audio = recognizer.listen(source)
 
                 try:

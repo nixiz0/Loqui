@@ -1,4 +1,3 @@
-
 # Loqui
 
 ![Loqui Logo](ressources/logo_loqui.png)
@@ -71,6 +70,7 @@ To launch the model you must :
 - By default the main microphone used by Windows will be used but you can choose from all your microphones (if you have several) the one you want to use to speak with.
 - You can choose from the list of your synthetic voices that are in your operating system the voice you want to use.
 - (Optional) If you have installed Ollama and run the API server on your machine (click on 'Local LLM Guide' button on the menu if you don't know how to do this), you can put the name of a model that you have locally and use it later with a commands voice (check bellow to see the trigger sentences for activate the local LLM and for desactivate him)
+- (Optional) If you have installed Ollama and run the API server on your machine (click on 'Local LLM Guide' button on the menu if you don't know how to do this), you can put the name of a vision model that you have locally and use it later with a commands voice (check bellow to see the trigger sentences for activate the vision LLM and for desactivate him)
 
 
 ## To have more Synthetic Voices Available (on Windows)
@@ -109,7 +109,16 @@ The application integrates several features allowing you to execute commands wit
 **Save conversation with the LLM in text:**  
 ['sauvegarde notre discussion', 'sauvegarde notre conversation', 'sauvegarde la discussion', 'sauvegarde la conversation', 'save our discussion', 'save our conversation', 'save the discussion', 'save the conversation']
 
-**Deactivate LLM to return to classic detection:**  
+**Launch Vision LLM (use Ollama):**  
+['passe en mode analyse', 'passe en analyse', 'passage en mode analyse', 'switch to analysis mode', 'switch to analysis', 'switch to analyse mode', 'switch to analyse']
+
+**Screenshot of your Desktop for Vision LLM:**  
+['screenshot', 'screen']
+
+**Camera for Vision LLM:**  
+['camera', 'caméra', 'cam']
+
+**Deactivate LLM and LLM vision to return to classic detection:**  
 ['désactive llm', 'passe en mode classique', 'passage en mode classique', 'disable llm', 'switch to classic mode', 'switch classic mode']
 
 **Open Text Edit and take note (file saved in your Desktop):**  
@@ -175,6 +184,8 @@ You will be asked if you wish to modify the video parameters, you can in particu
 
 
 ## Tech Stack
+
+**Local AI Models:** Ollama (version 0.1.20)
 
 **Voice Recognition:** speech_recognition
 
