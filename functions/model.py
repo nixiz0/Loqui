@@ -226,8 +226,9 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
                 continue
             
             # Launch Local Vision LLM (use Ollama) 
-            llm_vision_start_keywords = ['passe en mode analyse', 'passe en analyse', 'passage en mode analyse',
-                                  'switch to analysis mode', 'switch to analysis', 'switch to analyse mode', 'switch to analyse'
+            llm_vision_start_keywords = ['passe en mode analyse', 'passe en analyse', 'passage en mode analyse', 'passage en mode vision',
+                                  'passage en vision', 'passe en vision', 'passe en mode vision', 'switch to analysis mode', 
+                                  'switch to analyse', 'switch to vision', 'switch to vision mode', 'switch to analysis', 'switch to analyse mode', 
                                  ]
             if any(keyword in command for keyword in llm_vision_start_keywords):
                 with open('params.txt', 'r') as f:
