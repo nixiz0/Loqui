@@ -7,7 +7,7 @@ Application allowing you to configure a text and a voice response, also allows y
 
 ## Installation
 
-The fastest way is to clone the repository and click on the **'start-app.bat'** and the application will **launch automatically** (if you have beforehand creating your .env and download the requirements.txt in your activate environment).
+The fastest way is to clone the repository and click on the **'start-app.bat'** and the application will **launch and make the installation automatically**.
 
 If you want to run the code from your code environment, do this :
 
@@ -19,7 +19,7 @@ If you want to run the code from your code environment, do this :
 
 3-/ Download required libraries ```pip install -r requirements.txt```
 
-4-/ Run the menu.py ```python main.py```
+4-/ Run the main.py ```python main.py```
 
 
 ## Installation to launch assistant when your computer starts (on Windows)
