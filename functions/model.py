@@ -322,6 +322,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
             for keyword in google_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
+                    if search.startswith('re '):
+                        search = search[3:]
                     url = "https://www.google.com/search?q=" + search
                     webbrowser.open(url)
                     break
@@ -331,6 +333,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
             for keyword in wikipedia_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
+                    if search.startswith('re '):
+                        search = search[3:]
                     url = "https://fr.wikipedia.org/wiki/" + search
                     webbrowser.open(url)
                     break
@@ -340,6 +344,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
             for keyword in bing_keywords:
                 if keyword in command:
                     search = command.replace(keyword, '').strip()
+                    if search.startswith('re '):
+                        search = search[3:]
                     url = "https://www.bing.com/search?q=" + search
                     webbrowser.open(url)
                     break
