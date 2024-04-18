@@ -54,6 +54,8 @@ def voice_model(language='en-EN', mic_index=0, voice_id='HKEY_LOCAL_MACHINE\SOFT
     
     def load_app_paths():
         app_paths = {}
+        if not os.path.exists('json_files'):
+            os.makedirs('json_files')
         for filename in os.listdir('json_files'):
             if filename.endswith('.json'):
                 with open(f'json_files/{filename}', 'r', encoding='utf-8') as f:
